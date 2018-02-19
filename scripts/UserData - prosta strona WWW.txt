@@ -1,0 +1,15 @@
+#!/bin/bash
+yum update -y
+yum install -y httpd24 php56 mysql55-server php56-mysqlnd
+service httpd start
+chkconfig httpd on
+
+
+cat <<EOF> /var/www/html/index.html
+<html>
+	<body>
+		<h1> This is simple webpage hosted on EC2 instance</h1>
+		<p> This is working! </p>
+	</body>
+</html>
+EOF
