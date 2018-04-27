@@ -13,6 +13,12 @@
                     ]
                 }
             }
+        },
+        {
+            "Sid": "DenyAccessToIAM",
+            "Effect": "Deny",
+            "Action": "iam:*",
+            "Resource": "*"
         }
     ]
 }
