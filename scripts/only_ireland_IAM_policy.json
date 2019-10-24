@@ -4,7 +4,32 @@
         {
             "Sid": "DenyOutsideIreland",
             "Effect": "Deny",
-            "Action": "*",
+            "NotAction": [
+              "aws-portal:*",
+              "awsbillingconsole:*",
+              "iam:*",
+              "sts:*",
+              "health:*",
+              "support:*",
+              "budgets:*",
+              "cloudfront:*",
+              "organizations:*",
+              "trustedadvisor:*",
+              "shield:*",
+              "waf:*",
+              "waf-regional:*",
+              "route53:*",
+              "route53domains:*",
+              "tag:*",
+              "resource-groups:*",
+              "s3:Get*",
+              "s3:List*",
+              "s3:Head*",
+              "glacier:List*",
+              "glacier:Describe*",
+              "glacier:Get*",
+              "acm:*"
+            ],
             "Resource": "*",
             "Condition": {
                 "StringNotEquals": {
@@ -13,12 +38,49 @@
                     ]
                 }
             }
-        },
+        }
+    ]
+}
+{
+    "Version": "2012-10-17",
+    "Statement": [
         {
-            "Sid": "DenyAccessToIAM",
+            "Sid": "DenyOutsideIreland",
             "Effect": "Deny",
-            "Action": "iam:*",
-            "Resource": "*"
+            "NotAction": [
+              "aws-portal:*",
+              "awsbillingconsole:*",
+              "iam:*",
+              "sts:*",
+              "health:*",
+              "support:*",
+              "budgets:*",
+              "cloudfront:*",
+              "organizations:*",
+              "trustedadvisor:*",
+              "shield:*",
+              "waf:*",
+              "waf-regional:*",
+              "route53:*",
+              "route53domains:*",
+              "tag:*",
+              "resource-groups:*",
+              "s3:Get*",
+              "s3:List*",
+              "s3:Head*",
+              "glacier:List*",
+              "glacier:Describe*",
+              "glacier:Get*",
+              "acm:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestedRegion": [
+                        "eu-west-1"
+                    ]
+                }
+            }
         }
     ]
 }
